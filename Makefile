@@ -41,3 +41,6 @@ endif
 
 deploy:
 	@forge script script/DeployBox.s.sol:DeployBox $(NETWORK_ARGS)
+
+upgrade:
+	@forge script script/UpgradeBox.s.sol:UpgradeBox $(NETWORK_ARGS)

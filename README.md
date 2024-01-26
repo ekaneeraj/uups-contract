@@ -1,8 +1,18 @@
 # Getting Started
 
 ## Deployed contract address:
-1. Address: 
-2. Explorer link: [Link](https://sepolia.etherscan.io/address/)
+
+### BoxV1 contract address:
+1. Address: 0xA7B9DD0458be54aDeEB67134B944b5C3551d7499
+2. Explorer link: [Link](https://sepolia.etherscan.io/address/0xA7B9DD0458be54aDeEB67134B944b5C3551d7499)
+
+### ERC1967Proxy contract address:
+1. Address: 0xc69fFd2127D331b2DfA6db0868F02cD761d36D75
+2. Explorer link: [Link](https://sepolia.etherscan.io/address/0xc69fFd2127D331b2DfA6db0868F02cD761d36D75)
+
+### BoxV2 contract address:
+1. Address: 0x85CD13E2876d9af844f54124664dCD74aD4EdB4E
+2. Explorer link: [Link](https://sepolia.etherscan.io/address/0x85CD13E2876d9af844f54124664dCD74aD4EdB4E)
 
 ## Requirements
 
@@ -24,8 +34,14 @@ forge build
 
 ## Deploy:
 
+DeployBox
 ```
 forge script script/DeployBox.s.sol
+```
+
+UpgradeBox
+```
+forge script script/UpgradeBox.s.sol
 ```
 
 ## Testing
@@ -79,24 +95,25 @@ Optionally, add your `ETHERSCAN_API_KEY` if you want to verify your contract on 
 
 Also, you can also store private key by creating a keystore wallet to avoid adding private key in .env file. To create keystore wallet you can following steps: 
 
-1. Run script to create new wallet and import your priavte key
+a. Run script to create new wallet and import your private key
 
 ```bash
 cast wallet import defaultKey --interactive
 ```
 here, defaultKey is wallet name
 
-2. verify if wallet added
+b. verify if wallet added
 ```bash
 cast wallet list
 ```
 
-1. Get testnet ETH
+3. Get testnet ETH
 
 Head over to [faucets.chain.link](https://faucets.chain.link/) and get some testnet ETH. You should see the ETH show up in your metamask.
 
-3. Deploy
+4. Deployment
 
+a. DeployBox
 ```
 forge script script/DeployBox.s.sol --rpc-url $SEPOLIA_RPC_URL --private-key $PRIVATE_KEY --broadcast --verify --etherscan-api-key $ETHERSCAN_API_KEY
 ```
@@ -106,6 +123,18 @@ or
  deploy using keystore
 ```bash
 forge script script/DeployBox.s.sol --rpc-url $SEPOLIA_RPC_URL --account defaultKey --sender <Wallet Address> --broadcast`
+```
+
+b. UpgradeBox
+```
+forge script script/UpgradeBox.s.sol --rpc-url $SEPOLIA_RPC_URL --private-key $PRIVATE_KEY --broadcast --verify --etherscan-api-key $ETHERSCAN_API_KEY
+```
+
+or
+
+ deploy using keystore
+```bash
+forge script script/UpgradeBox.s.sol --rpc-url $SEPOLIA_RPC_URL --account defaultKey --sender <Wallet Address> --broadcast`
 ```
 
 ## Estimate gas
